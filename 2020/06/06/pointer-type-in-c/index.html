@@ -20,21 +20,22 @@
     <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta property="og:type" content="article">
-<meta property="og:title" content="post_name">
-<meta property="og:url" content="https://gurugru.github.io/2020/05/19/post-name/index.html">
+    <meta name="description" content="字符串操作函数传参入手了解C语言指针栗子代码如下： 1234567891011121314151617181920212223void  ptr(char **str)&amp;#123;&#x2F;&#x2F;**str 二级指针 指针的地址    char * ch&#x3D;* str;&#x2F;&#x2F;* str 取指 将指针str赋值给ch      printf(&quot;ch prior : %p\n&quot;,&amp;ch);&#x2F;&#x2F;定义指针的地址为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pointer type in c">
+<meta property="og:url" content="https://gurugru.github.io/2020/06/06/pointer-type-in-c/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="字符串操作函数传参入手了解C语言指针栗子代码如下： 1234567891011121314151617181920212223void  ptr(char **str)&amp;#123;&#x2F;&#x2F;**str 二级指针 指针的地址    char * ch&#x3D;* str;&#x2F;&#x2F;* str 取指 将指针str赋值给ch      printf(&quot;ch prior : %p\n&quot;,&amp;ch);&#x2F;&#x2F;定义指针的地址为">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gurugru.github.io/2020/05/19/post-name/">
-<meta property="article:published_time" content="2020-05-19T02:38:15.000Z">
-<meta property="article:modified_time" content="2020-05-19T02:58:09.058Z">
+<meta property="article:published_time" content="2020-06-06T08:08:19.000Z">
+<meta property="article:modified_time" content="2020-06-06T08:58:27.489Z">
 <meta property="article:author" content="gurugru">
+<meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gurugru.github.io/2020/05/19/post-name/">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
-    <title>post_name · gurugru.</title>
+    <title>pointer type in c · gurugru.</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -229,7 +230,7 @@
                 <a href="/" >gurugru.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">post_name</a>
+                <a href="#" class="post-name">pointer type in c</a>
             </div>
     </div>
     
@@ -259,7 +260,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            post_name
+            pointer type in c
             <!-- 404 -->
             
         </h1>
@@ -276,14 +277,20 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "C">C</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">0</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">485</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/05/19</span>
+                    <span class="post-intro-time">2020/06/06</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -407,16 +414,20 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p><img src="/2020/05/19/post-name/" alt></p>
+        <h1 id="字符串操作函数传参入手了解C语言指针"><a href="#字符串操作函数传参入手了解C语言指针" class="headerlink" title="字符串操作函数传参入手了解C语言指针"></a>字符串操作函数传参入手了解C语言指针</h1><p>栗子代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">ptr</span><span class="params">(<span class="keyword">char</span> **str)</span></span>&#123;<span class="comment">//**str 二级指针 指针的地址</span></span><br><span class="line">    <span class="keyword">char</span> * ch=* str;<span class="comment">//* str 取指 将指针str赋值给ch  </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ch prior : %p\n"</span>,&amp;ch);<span class="comment">//定义指针的地址为 ch prior 后跟指针地址  ch后跟指针值即指针所指变量的地址；</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ch : %p\n"</span>,ch);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"str prior : %p\n"</span>,str);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"str : %p\n"</span>,*str);</span><br><span class="line">    *str=<span class="string">"bcd"</span>;<span class="comment">//修改指针本身</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"changed ch : %p\n"</span>,ch);<span class="comment">//检查修改str值后ch的值；</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[]=<span class="string">"abc"</span>;</span><br><span class="line">    <span class="keyword">char</span> *str=str1;</span><br><span class="line">    ptr(&amp;str);<span class="comment">//&amp;取指针Str的地址;</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"changed str:%p\n"</span>,*str);<span class="comment">//使用指针传参改变str指针的值。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//output</span></span><br><span class="line"><span class="comment">//ch prior : 0060FECC       </span></span><br><span class="line"><span class="comment">//ch : 0060FEFC  line		</span></span><br><span class="line"><span class="comment">//str prior : 0060FEF8 </span></span><br><span class="line"><span class="comment">//str : 0060FEFC  </span></span><br><span class="line"><span class="comment">//changed ch : 0060FEFC </span></span><br><span class="line"><span class="comment">//changed str:00403056</span></span><br></pre></td></tr></table></figure>
+
+<p>首先要讲的是字符串操作函数，如上述代码中<code>ptr()</code>进行字符串赋值操作，字符串将其首地址赋值给指针，存在指针本身值的改变，在函数中修改变量的值需要传入变量的地址，因此传入指针的地址<code>&amp;str</code>，可以看到在output第二行和第六行看到指针本身值改变的情况。另外再讨论一下函数内部赋值中指针的情况，定义一个指针变量<code>ch</code>指向<code>str</code>，可以发现，其本身值与<code>str</code>相同，都为<code>0060FEFC</code>，而存储该指针变量的地址不同，分别为<code>0060FECC</code>  与<code>0060FEF8</code>，可以发现不同变量的存储地址不同。</p>
+<p>于是，可以发现，地址与变量关联，每一个变量C都会给他开辟存储空间，假设指针<code>p</code>指向变量<code>a</code>, 则指针的地址存储变量a的地址即指针p的值，变量a的地址存储a的值。总是从地址中获取值，当地址中的值为其他变量的地址时，该变量则可以认为是指针（也可以是多重指针）。</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>Author：<a href="https://gurugru.github.io">gurugru</a>
-            <p>原文链接：<a href="https://gurugru.github.io/2020/05/19/post-name/">https://gurugru.github.io/2020/05/19/post-name/</a>
-            <p>发表日期：<a href="https://gurugru.github.io/2020/05/19/post-name/">May 19th 2020, 10:38:15 am</a>
-            <p>更新日期：<a href="https://gurugru.github.io/2020/05/19/post-name/">May 19th 2020, 10:58:09 am</a>
+            <p>原文链接：<a href="https://gurugru.github.io/2020/06/06/pointer-type-in-c/">https://gurugru.github.io/2020/06/06/pointer-type-in-c/</a>
+            <p>发表日期：<a href="https://gurugru.github.io/2020/06/06/pointer-type-in-c/">June 6th 2020, 4:08:19 pm</a>
+            <p>更新日期：<a href="https://gurugru.github.io/2020/06/06/pointer-type-in-c/">June 6th 2020, 4:58:27 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -424,17 +435,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2020/06/06/pointer-type-in-c/" title= "pointer type in c">
-                    <div class="nextTitle">pointer type in c</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/05/18/sky/" title= "sky">
-                    <div class="prevTitle">sky</div>
+                <a href= "/2020/05/19/post-name/" title= "post_name">
+                    <div class="prevTitle">post_name</div>
                 </a>
             
         </li>
@@ -557,7 +563,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串操作函数传参入手了解C语言指针"><span class="toc-number">1.</span> <span class="toc-text">字符串操作函数传参入手了解C语言指针</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
